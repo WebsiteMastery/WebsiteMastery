@@ -1,140 +1,122 @@
-/* Style général */
+/* Styles généraux */
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto Mono', monospace;
-    background: radial-gradient(circle at center, #121212, #1d1d1d); /* Fond sombre avec effet doux */
-    color: #b3ffcc; /* Vert doux pour le texte principal */
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #141E30, #243B55); /* Dégradé élégant */
+    color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     min-height: 100vh;
+    overflow: hidden;
 }
 
-/* Titres principaux */
-h1, h2, h3 {
-    text-align: center;
-    text-transform: uppercase;
-    margin: 20px 0;
-}
-
-h1 {
-    font-size: 2.5rem;
-    color: #66ffcc;
-    text-shadow: 0 0 5px #66ffcc, 0 0 10px #66ffcc;
-}
-
-h2 {
-    font-size: 1.8rem;
-    color: #b3ffcc;
-    text-shadow: 0 0 5px #b3ffcc;
-}
-
-/* Sections */
-section {
-    background: rgba(18, 18, 18, 0.9); /* Fond sombre avec transparence légère */
-    border: 1px solid #66ffcc; /* Bordures atténuées */
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(102, 255, 204, 0.3); /* Ombre douce */
-    padding: 20px;
-    margin: 20px 0;
+/* Conteneur principal */
+.container {
     width: 90%;
-    max-width: 800px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-section:hover {
-    transform: scale(1.01);
-    box-shadow: 0 0 20px rgba(102, 255, 204, 0.5); /* Brillance légère au survol */
+/* Titre principal */
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
 
-/* Listes */
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
-}
-
-ul li {
-    background: rgba(102, 255, 204, 0.1);
-    border: 1px solid rgba(102, 255, 204, 0.2);
-    border-radius: 8px;
-    padding: 10px;
-    margin: 8px 0;
-    color: #b3ffcc;
-    display: flex;
-    justify-content: space-between;
+/* Sous-titre */
+p {
     font-size: 1rem;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* Boutons */
 button {
-    background: linear-gradient(90deg, #66ffcc, #b3ffcc);
-    color: #000;
-    padding: 12px 25px;
+    width: 100%;
+    padding: 12px;
     font-size: 1rem;
-    font-weight: bold;
+    margin-top: 15px;
     border: none;
-    border-radius: 30px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: #fff;
     cursor: pointer;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 5px #66ffcc, 0 0 10px #66ffcc;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 button:hover {
-    background: linear-gradient(90deg, #4dd2a0, #99e6d5);
     transform: scale(1.05);
-    box-shadow: 0 0 15px #66ffcc;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 button:active {
-    background: linear-gradient(90deg, #33a386, #80ccb5);
     transform: scale(0.98);
 }
 
-/* Animations pour la détection */
-#system-info ul li::after, #virus-results li::after {
-    content: '•';
-    animation: blink 1s infinite;
-    color: #ff6666; /* Rouge doux pour l'animation */
-    margin-left: 5px;
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-/* Pied de page */
-footer {
-    margin-top: auto;
-    text-align: center;
-    padding: 10px;
-    background: #1d1d1d;
-    width: 100%;
-    color: #b3ffcc;
+/* Résultats */
+.results {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    color: #fff;
+    text-align: left;
     font-size: 0.9rem;
-    border-top: 1px solid rgba(102, 255, 204, 0.2);
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
 }
 
-footer p {
-    margin: 0;
-    font-size: 0.8rem;
+/* Barre de progression */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 20px;
+    position: relative;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
+.progress-bar::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    animation: loadProgress 3s linear forwards;
+}
 
-    section {
-        padding: 15px;
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-    button {
-        font-size: 0.9rem;
-        padding: 10px 20px;
+@keyframes loadProgress {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
     }
 }
