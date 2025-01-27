@@ -6,11 +6,9 @@ body {
     background: linear-gradient(135deg, #141E30, #243B55); /* Dégradé élégant */
     color: #fff;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     min-height: 100vh;
-    overflow: hidden;
 }
 
 /* Conteneur principal */
@@ -20,22 +18,21 @@ body {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Titre principal */
-h1 {
+/* En-tête */
+header h1 {
     font-size: 1.8rem;
     margin-bottom: 10px;
     color: #fff;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
 
-/* Sous-titre */
-p {
+header p {
     font-size: 1rem;
     margin-bottom: 20px;
     color: rgba(255, 255, 255, 0.7);
@@ -46,7 +43,6 @@ button {
     width: 100%;
     padding: 12px;
     font-size: 1rem;
-    margin-top: 15px;
     border: none;
     border-radius: 8px;
     background: linear-gradient(90deg, #6a11cb, #2575fc);
@@ -54,6 +50,7 @@ button {
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
 }
 
 button:hover {
@@ -65,7 +62,7 @@ button:active {
     transform: scale(0.98);
 }
 
-/* Résultats */
+/* Section des résultats */
 .results {
     margin-top: 20px;
     padding: 15px;
@@ -75,9 +72,47 @@ button:active {
     text-align: left;
     font-size: 0.9rem;
     line-height: 1.5;
+    display: none; /* Masqué par défaut, sera affiché via JS */
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.5s ease forwards;
+}
+
+.results h2 {
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.results ul {
+    list-style: none;
+    padding: 0;
+}
+
+.results ul li {
+    margin-bottom: 8px;
+}
+
+/* Section À propos */
+.about {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.about p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 /* Barre de progression */
