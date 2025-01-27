@@ -2,119 +2,115 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(120deg, #002f4b, #006699);
-    color: #fff;
+    font-family: 'Roboto Mono', monospace;
+    background: radial-gradient(circle at center, #0f0f0f, #000000); /* Fond sombre avec effet radial */
+    color: #00ff99; /* Vert néon pour le texte principal */
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
 }
 
-h1, h2 {
+/* Titres principaux */
+h1, h2, h3 {
     text-align: center;
+    text-transform: uppercase;
+    margin: 20px 0;
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin: 20px 0;
+    font-size: 3rem;
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
 }
 
 h2 {
     font-size: 2rem;
-    margin: 15px 0;
+    color: #00ff99;
+    text-shadow: 0 0 5px #00ff99, 0 0 10px #00ff99;
 }
 
-/* Style des sections */
+/* Sections */
 section {
-    background: #ffffff11; /* Fond semi-transparent */
-    border: 1px solid #ffffff33; /* Bordures légères */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background: rgba(15, 15, 15, 0.9); /* Fond transparent noir */
+    border: 1px solid #00ff99; /* Bordures vert néon */
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 255, 153, 0.5); /* Éclat néon */
     padding: 20px;
-    margin: 15px 0;
-    max-width: 800px;
+    margin: 20px 0;
     width: 90%;
+    max-width: 800px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-section h2 {
-    color: #00c8ff;
+section:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(0, 255, 153, 0.8); /* Brillance au survol */
 }
 
-/* Style des listes */
+/* Listes */
 ul {
     list-style: none;
-    padding: 0;
-}
-
-ul li {
-    background: #ffffff22;
-    border: 1px solid #ffffff44;
-    border-radius: 5px;
-    margin: 5px 0;
-    padding: 10px;
-}
-
-/* Style des boutons */
-button {
-    background-color: #006699;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-button:hover {
-    background-color: #004466;
-    transform: scale(1.05);
-}
-
-button:active {
-    background-color: #002f4b;
-}
-
-/* Informations système */
-#system-info ul {
-    margin-top: 10px;
-    padding: 0;
-}
-
-#system-info li {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    color: #fff;
-}
-
-/* Résultats d'analyse */
-#scan-results ul {
     padding: 0;
     margin: 10px 0;
 }
 
-/* Protection réseau */
-#network-status-message {
-    color: #00ff7f;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-/* Accessoires connectés */
-#accessories-list li {
-    background: #ffffff22;
+ul li {
+    background: rgba(0, 255, 153, 0.1);
+    border: 1px solid rgba(0, 255, 153, 0.3);
+    border-radius: 8px;
     padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #00c8ff33;
+    margin: 8px 0;
+    color: #00ff99;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
 }
 
-/* Outils d'optimisation */
-#optimization-status {
-    color: #ffae42;
+/* Boutons */
+button {
+    background: linear-gradient(90deg, #00ff99, #00ffcc);
+    color: #000;
+    padding: 15px 30px;
+    font-size: 1.2rem;
     font-weight: bold;
-    margin-top: 10px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #00ccff, #00ff99);
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #00ffcc, 0 0 40px #00ffcc;
+}
+
+button:active {
+    background: linear-gradient(90deg, #0088cc, #00cc88);
+    transform: scale(0.95);
+}
+
+/* Informations système */
+#system-info ul li {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(0, 255, 153, 0.2);
+    color: #00ff99;
+}
+
+#system-info ul li:last-child {
+    border-bottom: none;
+}
+
+/* Résultats */
+#virus-results li, #final-report li, #accessories-list li {
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    margin: 5px 0;
+    border: 1px solid rgba(0, 255, 153, 0.3);
 }
 
 /* Pied de page */
@@ -122,12 +118,30 @@ footer {
     margin-top: auto;
     text-align: center;
     padding: 10px;
-    background: #001f33;
+    background: #0f0f0f;
     width: 100%;
-    color: #ccc;
+    color: #00ffcc;
     font-size: 0.9rem;
+    border-top: 1px solid rgba(0, 255, 153, 0.3);
 }
 
 footer p {
     margin: 0;
+    font-size: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
 }
