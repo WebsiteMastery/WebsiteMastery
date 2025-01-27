@@ -3,104 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Website Mastery - Sécurité et Analyse</title>
+    <title>Website Mastery</title>
+    <!-- Lien vers le fichier CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- En-tête -->
-    <header>
-        <h1>Website Mastery</h1>
-        <p>Votre solution universelle pour analyser, sécuriser et optimiser vos appareils.</p>
-    </header>
+    <!-- Conteneur principal -->
+    <div class="container">
+        <header>
+            <h1>Website Mastery</h1>
+            <p>Votre solution universelle pour analyser, sécuriser et optimiser vos appareils.</p>
+        </header>
 
-    <!-- Informations système -->
-    <section id="system-info">
-        <h2>Informations système</h2>
-        <ul>
-            <li><strong>Nom de l'appareil :</strong> <span id="device-name">Détection en cours...</span></li>
-            <li><strong>Système d'exploitation :</strong> <span id="os">Détection en cours...</span></li>
-            <li><strong>Niveau de batterie :</strong> <span id="battery">Détection en cours...</span></li>
-            <li><strong>Adresse IP :</strong> <span id="ip-address">Détection en cours...</span></li>
-            <li><strong>État réseau :</strong> <span id="network-status">Détection en cours...</span></li>
-        </ul>
-    </section>
+        <!-- Barre de progression pour simulation -->
+        <div class="progress-bar"></div>
 
-    <!-- Analyse réseau -->
-    <section id="network-analysis">
-        <h2>Analyse et protection réseau</h2>
-        <p>Analysez votre réseau et activez une protection avancée pour sécuriser vos appareils.</p>
-        <button id="network-protection-btn">Activer la protection réseau</button>
-        <p id="network-status-message" style="display: none;">Protection réseau activée avec succès.</p>
-    </section>
+        <!-- Bouton principal -->
+        <button id="analyze-btn">Lancer une analyse complète</button>
 
-    <!-- Analyse des virus -->
-    <section id="virus-scan">
-        <h2>Analyse des Virus</h2>
-        <p>Lancez une analyse complète pour détecter des virus ou fichiers malveillants.</p>
-        <button id="scan-virus-btn">Lancer l'analyse des virus</button>
-        <ul id="virus-results" style="display: none;">
-            <!-- Les résultats d'analyse seront affichés ici -->
-        </ul>
-    </section>
+        <!-- Section des résultats -->
+        <section class="results" id="results">
+            <h3>Résultats de l'analyse :</h3>
+            <ul id="result-list">
+                <!-- Les résultats seront ajoutés ici via JavaScript -->
+            </ul>
+        </section>
 
-    <!-- Détection des activités suspectes -->
-    <section id="suspicious-activities">
-        <h2>Détection des Activités Suspectes</h2>
-        <p>Analyse des comportements anormaux et activités suspectes.</p>
-        <ul id="activity-report">
-            <li>Analyse en cours...</li>
-        </ul>
-    </section>
+        <!-- Section À propos -->
+        <section class="about">
+            <h2>À propos</h2>
+            <p>
+                Website Mastery est une plateforme dédiée à la sécurité des sites web et des appareils. 
+                Analysez et corrigez les failles en quelques clics, avec une interface fluide et moderne.
+            </p>
+        </section>
 
-    <!-- Gestion des autorisations -->
-    <section id="device-permissions">
-        <h2>Gestion des Autorisations</h2>
-        <p>Gérez les autorisations et fonctionnalités de votre appareil :</p>
-        <ul>
-            <li>
-                <button id="toggle-camera">Activer/Désactiver la caméra</button>
-            </li>
-            <li>
-                <button id="toggle-microphone">Activer/Désactiver le microphone</button>
-            </li>
-            <li>
-                <button id="toggle-bluetooth">Activer/Désactiver le Bluetooth</button>
-            </li>
-        </ul>
-    </section>
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Website Mastery. Tous droits réservés.</p>
+        </footer>
+    </div>
 
-    <!-- Accessoires connectés -->
-    <section id="connected-accessories">
-        <h2>Accessoires Connectés</h2>
-        <p>Liste des accessoires connectés :</p>
-        <ul id="accessories-list">
-            <li>Analyse en cours...</li>
-        </ul>
-    </section>
-
-    <!-- Outils d'optimisation -->
-    <section id="optimization-tools">
-        <h2>Outils d'Optimisation</h2>
-        <p>Optimisez les performances de vos appareils :</p>
-        <button id="clear-cache">Effacer le cache</button>
-        <button id="optimize-system">Optimiser le système</button>
-        <p id="optimization-status" style="display: none;">Optimisation en cours...</p>
-    </section>
-
-    <!-- Rapport des résultats -->
-    <section id="scan-results">
-        <h2>Rapport des Résultats</h2>
-        <p>Résumé des analyses effectuées :</p>
-        <ul id="final-report">
-            <!-- Les résultats apparaîtront ici -->
-        </ul>
-    </section>
-
-    <!-- Pied de page -->
-    <footer>
-        <p>© 2025 Website Mastery. Tous droits réservés.</p>
-    </footer>
+    <!-- Lien vers le fichier JS -->
     <script src="script.js"></script>
 </body>
 </html>
