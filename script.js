@@ -1,157 +1,82 @@
-/* Styles généraux */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #141E30, #243B55); /* Dégradé élégant */
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
+// Sélection des éléments DOM
+const analyzeButton = document.getElementById("analyze-btn");
+const resultsContainer = document.getElementById("results");
+const resultList = document.getElementById("result-list");
 
-/* Conteneur principal */
-.container {
-    width: 90%;
-    max-width: 400px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
+// Fonction pour simuler le chargement
+const simulateLoading = async (duration) => {
+    let progress = 0;
+    const interval = 100; // Intervalle en millisecondes
+    const steps = duration / interval;
 
-/* En-tête */
-header h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: #fff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-}
+    return new Promise((resolve) => {
+        const loadingInterval = setInterval(() => {
+            progress += 100 / steps;
+            console.log(`Chargement : ${Math.min(Math.round(progress), 100)}%`);
+            if (progress >= 100) {
+                clearInterval(loadingInterval);
+                resolve();
+            }
+        }, interval);
+    });
+};
 
-header p {
-    font-size: 1rem;
-    margin-bottom: 20px;
-    color: rgba(255, 255, 255, 0.7);
-}
+// Fonction pour ajouter un résultat à l'interface
+const addResult = (text) => {
+    const li = document.createElement("li");
+    li.textContent = text;
+    resultList.appendChild(li);
+};
 
-/* Boutons */
-button {
-    width: 100%;
-    padding: 12px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #6a11cb, #2575fc);
-    color: #fff;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    margin-bottom: 15px;
-}
+// Fonction principale d'analyse
+const startAnalysis = async () => {
+    // Réinitialiser l'état
+    resultsContainer.style.opacity = "0";
+    resultList.innerHTML = "";
 
-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-}
+    // Simuler l'analyse étape par étape
+    addResult("Début de l'analyse...");
+    await simulateLoading(2000);
 
-button:active {
-    transform: scale(0.98);
-}
+    // Informations système
+    addResult("Système d'exploitation détecté : " + navigator.platform);
+    await simulateLoading(2000);
 
-/* Section des résultats */
-.results {
-    margin-top: 20px;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    color: #fff;
-    text-align: left;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    display: none; /* Masqué par défaut, sera affiché via JS */
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.5s ease forwards;
-}
-
-.results h2 {
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-.results ul {
-    list-style: none;
-    padding: 0;
-}
-
-.results ul li {
-    margin-bottom: 8px;
-}
-
-/* Section À propos */
-.about {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.about h2 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.about p {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-/* Footer */
-footer {
-    margin-top: 20px;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-/* Barre de progression */
-.progress-bar {
-    width: 100%;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    overflow: hidden;
-    margin-top: 20px;
-    position: relative;
-}
-
-.progress-bar::before {
-    content: '';
-    display: block;
-    height: 100%;
-    width: 0;
-    background: linear-gradient(90deg, #6a11cb, #2575fc);
-    animation: loadProgress 3s linear forwards;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+    // Adresse IP
+    try {
+        const response = await fetch("https://api.ipify.org?format=json");
+        const { ip } = await response.json();
+        addResult("Adresse IP publique : " + ip);
+    } catch (error) {
+        addResult("Erreur lors de la récupération de l'adresse IP.");
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+    await simulateLoading(2000);
 
-@keyframes loadProgress {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
+    // Détection des anomalies
+    addResult("Recherche d'activités suspectes...");
+    await simulateLoading(2500);
+
+    // Simuler quelques anomalies détectées
+    const anomalies = [
+        "Connexion suspecte détectée : 192.168.0.45",
+        "Application non autorisée accédant au microphone.",
+        "Utilisation CPU anormale détectée (95%)."
+    ];
+    anomalies.forEach(anomaly => addResult("Anomalie : " + anomaly));
+    await simulateLoading(3000);
+
+    // Réparation simulée
+    addResult("Tentative de réparation des anomalies...");
+    await simulateLoading(3000);
+    addResult("Réparation terminée : Toutes les anomalies corrigées.");
+
+    // Recommandation basée sur IA
+    addResult("Recommandation IA : Vérifiez les autorisations des applications sensibles.");
+    addResult("Recommandation IA : Désactivez les connexions inutilisées pour optimiser la sécurité.");
+
+    // Afficher les résultats
+    resultsContainer.style.opacity = "1";
+};
+
+// Lancer l'analyse au clic du bouton
+analyzeButton.addEventListener("click", startAnalysis);
