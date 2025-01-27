@@ -3,8 +3,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto Mono', monospace;
-    background: radial-gradient(circle at center, #0f0f0f, #000000); /* Fond sombre avec effet radial */
-    color: #00ff99; /* Vert néon pour le texte principal */
+    background: #121212; /* Noir doux */
+    color: #a1eafb; /* Bleu ciel doux */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,23 +19,22 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 3rem;
-    color: #00ffcc;
-    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    font-size: 2.5rem;
+    color: #50b3a2;
+    text-shadow: 0 0 8px rgba(80, 179, 162, 0.5);
 }
 
 h2 {
-    font-size: 2rem;
-    color: #00ff99;
-    text-shadow: 0 0 5px #00ff99, 0 0 10px #00ff99;
+    font-size: 1.8rem;
+    color: #a1eafb;
 }
 
 /* Sections */
 section {
-    background: rgba(15, 15, 15, 0.9); /* Fond transparent noir */
-    border: 1px solid #00ff99; /* Bordures vert néon */
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 255, 153, 0.5); /* Éclat néon */
+    background: #1e1e1e; /* Noir plus doux */
+    border: 1px solid #3a3a3a;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     padding: 20px;
     margin: 20px 0;
     width: 90%;
@@ -45,7 +44,7 @@ section {
 
 section:hover {
     transform: scale(1.02);
-    box-shadow: 0 0 30px rgba(0, 255, 153, 0.8); /* Brillance au survol */
+    box-shadow: 0 0 15px rgba(161, 234, 251, 0.5);
 }
 
 /* Listes */
@@ -56,48 +55,54 @@ ul {
 }
 
 ul li {
-    background: rgba(0, 255, 153, 0.1);
-    border: 1px solid rgba(0, 255, 153, 0.3);
+    background: #2a2a2a;
+    border: 1px solid #3a3a3a;
     border-radius: 8px;
     padding: 10px;
     margin: 8px 0;
-    color: #00ff99;
+    color: #a1eafb;
     display: flex;
     justify-content: space-between;
     font-size: 1rem;
 }
 
+/* Animations pour les détections */
+@keyframes scanning {
+    0% { color: #a1eafb; }
+    50% { color: #50b3a2; }
+    100% { color: #a1eafb; }
+}
+
+.detecting {
+    animation: scanning 1.5s infinite ease-in-out;
+}
+
 /* Boutons */
 button {
-    background: linear-gradient(90deg, #00ff99, #00ffcc);
-    color: #000;
-    padding: 15px 30px;
-    font-size: 1.2rem;
+    background: #3d5a80;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1rem;
     font-weight: bold;
     border: none;
-    border-radius: 30px;
+    border-radius: 5px;
     cursor: pointer;
-    text-transform: uppercase;
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-    background: linear-gradient(90deg, #00ccff, #00ff99);
-    transform: scale(1.05);
-    box-shadow: 0 0 30px #00ffcc, 0 0 40px #00ffcc;
+    background: #2b3a50;
 }
 
 button:active {
-    background: linear-gradient(90deg, #0088cc, #00cc88);
-    transform: scale(0.95);
+    background: #1d2838;
 }
 
 /* Informations système */
 #system-info ul li {
     padding: 8px 10px;
-    border-bottom: 1px solid rgba(0, 255, 153, 0.2);
-    color: #00ff99;
+    border-bottom: 1px solid #3a3a3a;
 }
 
 #system-info ul li:last-child {
@@ -107,10 +112,10 @@ button:active {
 /* Résultats */
 #virus-results li, #final-report li, #accessories-list li {
     padding: 10px;
-    background: rgba(0, 0, 0, 0.8);
+    background: #1e1e1e;
     border-radius: 5px;
     margin: 5px 0;
-    border: 1px solid rgba(0, 255, 153, 0.3);
+    border: 1px solid #3a3a3a;
 }
 
 /* Pied de page */
@@ -118,11 +123,11 @@ footer {
     margin-top: auto;
     text-align: center;
     padding: 10px;
-    background: #0f0f0f;
+    background: #121212;
     width: 100%;
-    color: #00ffcc;
+    color: #757575;
     font-size: 0.9rem;
-    border-top: 1px solid rgba(0, 255, 153, 0.3);
+    border-top: 1px solid #3a3a3a;
 }
 
 footer p {
@@ -141,7 +146,7 @@ footer p {
     }
 
     button {
-        font-size: 1rem;
+        font-size: 0.9rem;
         padding: 10px 20px;
     }
 }
