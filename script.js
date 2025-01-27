@@ -1,60 +1,157 @@
-(async () => {
-    console.log("Début de l'analyse système et réseau...");
+/* Styles généraux */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #141E30, #243B55); /* Dégradé élégant */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-    // 1. Informations système
-    const detectSystemInfo = async () => {
-        console.log("Analyse des informations système...");
-        try {
-            const os = navigator.platform;
-            const userAgent = navigator.userAgent;
-            const isOnline = navigator.onLine ? "Connecté" : "Hors ligne";
+/* Conteneur principal */
+.container {
+    width: 90%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
 
-            console.log(`Système d'exploitation : ${os}`);
-            console.log(`Navigateur : ${userAgent}`);
-            console.log(`Statut réseau : ${isOnline}`);
-        } catch (error) {
-            console.error("Erreur lors de l'analyse système :", error);
-        }
-    };
+/* En-tête */
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
 
-    // 2. Analyse réseau
-    const analyzeNetwork = async () => {
-        console.log("Analyse réseau...");
-        try {
-            const response = await fetch("https://api.ipify.org?format=json");
-            const { ip } = await response.json();
-            console.log(`Adresse IP publique : ${ip}`);
-        } catch (error) {
-            console.error("Erreur lors de la récupération de l'adresse IP :", error);
-        }
-    };
+header p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.7);
+}
 
-    // 3. Détection d'anomalies (simulées)
-    const detectAnomalies = () => {
-        console.log("Détection des anomalies...");
-        const anomalies = [
-            "Connexion suspecte détectée (192.168.0.45)",
-            "Application non autorisée accédant au microphone.",
-            "Utilisation CPU anormalement élevée (95%)"
-        ];
-        anomalies.forEach((anomaly) => {
-            console.warn(`Anomalie détectée : ${anomaly}`);
-        });
-    };
+/* Boutons */
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+}
 
-    // 4. Réparation et optimisation (simulées)
-    const repairSystem = () => {
-        console.log("Réparation et optimisation du système...");
-        setTimeout(() => {
-            console.log("Réparation terminée : Toutes les anomalies corrigées.");
-        }, 3000);
-    };
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
 
-    // Appeler les fonctions
-    await detectSystemInfo();
-    await analyzeNetwork();
-    detectAnomalies();
-    repairSystem();
+button:active {
+    transform: scale(0.98);
+}
 
-    console.log("Analyse terminée.");
-})();
+/* Section des résultats */
+.results {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    color: #fff;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    display: none; /* Masqué par défaut, sera affiché via JS */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.results h2 {
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.results ul {
+    list-style: none;
+    padding: 0;
+}
+
+.results ul li {
+    margin-bottom: 8px;
+}
+
+/* Section À propos */
+.about {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.about p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Barre de progression */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 20px;
+    position: relative;
+}
+
+.progress-bar::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    animation: loadProgress 3s linear forwards;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes loadProgress {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
