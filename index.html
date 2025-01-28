@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Mastery</title>
-    <!-- Lien vers le fichier CSS (style.css) -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Mastery</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <link rel="stylesheet" href="style.css">
-    <!-- Conteneur principal -->
-    <div class="container">
-        <!-- En-tête -->
-        <header>
-            <h1>Website Mastery</h1>
-            <p>Analysez, sécurisez et optimisez vos appareils en toute simplicité.</p>
-        </header>
+  <div class="container">
+    <header>
+      <h1>Website Mastery</h1>
+      <p>Analysez, sécurisez et optimisez vos appareils en toute simplicité.</p>
+    </header>
 
-        <!-- Section des actions -->
-        <section class="actions">
-            <button id="analyze-btn">Lancer une analyse</button>
-        </section>
+    <main>
+      <section id="analysis">
+        <h2>Analyse de l'appareil</h2>
+        <button id="analyze-btn" class="button">Lancer une analyse</button>
+        <div id="progress-bar">0%</div>
+      </section>
 
-        <!-- Section des résultats -->
-        <section class="results" id="results">
-            <h2>Résultats de l'analyse :</h2>
-            <ul id="result-list">
-                <!-- Les résultats seront insérés ici dynamiquement via JavaScript -->
-            </ul>
-        </section>
+      <section id="results">
+        <h2>Informations détectées :</h2>
+        <ul>
+          <li>Nom de l'appareil : <span id="device-name">...</span></li>
+          <li>Version OS : <span id="os-version">...</span></li>
+          <li>Date et heure : <span id="current-date">...</span></li>
+          <li>Mises à jour disponibles : <span id="update-status">...</span></li>
+          <li>Adresse IP : <span id="ip-address">...</span></li>
+          <li>Type de réseau : <span id="network-type">...</span></li>
+        </ul>
+      </section>
 
-        <!-- Section À propos -->
-        <section class="about">
-            <h2>À propos</h2>
-            <p>
-                Bienvenue sur Website Mastery, votre outil de sécurité et d'analyse avancé. 
-                Cette plateforme offre des solutions robustes pour protéger vos appareils et optimiser vos performances.
-            </p>
-        </section>
+      <section id="additional-options">
+        <h2>Options supplémentaires :</h2>
+        <button class="button">Supprimer les fichiers inutiles</button>
+        <button class="button">Optimiser le stockage</button>
+        <button class="button">Améliorer la performance</button>
+      </section>
 
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2025 Website Mastery. Tous droits réservés.</p>
-        </footer>
-    </div>
+      <section id="ai-recommendations">
+        <h2>Recommandations et conseils :</h2>
+        <p id="ai-output">L'intelligence artificielle analysera les résultats pour fournir des recommandations personnalisées.</p>
+      </section>
+    </main>
 
-    <!-- Lien vers le fichier JS (script.js) -->
-   <script src="script.js"></script>
+    <footer>
+      <p>© 2025 Website Mastery. Tous droits réservés.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
